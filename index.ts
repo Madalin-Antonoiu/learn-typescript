@@ -9,13 +9,12 @@ interface Todo {
     completed: boolean;
 }
 
-axios.get(url)
-    .then(({data}: {data: Todo}) => {
-        // const todo = response.data as Todo;
+axios.get(url).then(({data}: {data: Todo}) => logTodo(data))
 
-        console.log(`
-            The TODO with id: ${data.id}
-            Has a title: ${data.title}
-            Is it finished? ${data.completed}
-        `)
-    })
+const logTodo = (data: Todo) => {
+    console.log(`
+    The TODO with id: ${data.id}
+    Has a title: ${data.title}
+    Is it finished? ${data.completed}
+`)
+}
